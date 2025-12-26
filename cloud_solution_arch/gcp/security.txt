@@ -1,0 +1,13 @@
+## Compute Engine
+
+Ex1: A company needs a solution to enforce data encryption at rest on GCP/AWS/AZ EC2/VM instances, must automatically identify noncompliant resources and 
+enforce compliance policies on ndings. Which solution will meet these requirements with the LEAST administrative overhead?
+#GCP
+Sol: Enforce disk encryption by using GCP Organization Policy Service with the constraint compute.requireCmekForDiskCreation to automatically require encryption
+for all Compute Engine disks, and use Cloud Asset Inventory to identify any existing noncompliant resources.
+#AWS
+Enable AWS Config with the managed rule encrypted-volumes to automatically identify EC2 instances with unencrypted EBS volumes, and configure automatic remediation 
+using AWS Systems Manager Automation. This solution continuously enforces encryption at rest with minimal administrative overhead.
+#AZ
+Use Azure Policy with built-in policies to require Azure Disk Encryption for virtual machine OS and data disks and configure automatic remediation using
+DeployIfNotExists.Azure Policy continuously identifies noncompliant VMs and enforces encryption at rest with the least administrative overhead.
