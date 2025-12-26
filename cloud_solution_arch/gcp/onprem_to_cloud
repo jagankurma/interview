@@ -1,0 +1,12 @@
+## 
+Ex1: A company wants to migrate its web applications from on premises to AWS. The company is located close to the eu-central-1 Region. Because of regulations,
+the company cannot launch some of its applications in eu-central-1. The company wants to achieve single-digit millisecond latency.
+#Azure
+Sol: Deploy the web applications in a compliant Azure region and use Azure Edge Zones along with Azure Front Door to serve traffic close to users to achieve
+single-digit millisecond latency while ensuring applications are not launched in the restricted region.
+#GCP
+Deploy the web applications in a compliant GCP region and front them with Google Cloud’s global external HTTP(S) Load Balancer and Cloud CDN provides single-digit 
+millisecond latency through Google’s global edge network while ensuring applications are not launched in the restricted region.
+#AWS
+Deploy the web applications on Amazon EC2 instances in an AWS Local Zone located close to the company, while using a parent AWS Region other than eu-central-1. 
+AWS Local Zones provide single-digit millisecond latency while allowing the company to meet regulatory requirements by avoiding deployment in eu-central-1.
