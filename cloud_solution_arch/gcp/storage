@@ -1,0 +1,9 @@
+A solutions architect needs to copy les from an Amazon S3 bucket to an Amazon Elastic File System (Amazon EFS) le system and another S3 bucket. The les must be copied continuously. New les are added to the original S3 bucket consistently. The copied les should be overwritten
+only if the source le changes. Which solution will meet these requirements with the LEAST operational overhead?
+
+#Azure: Use Azure Data Factory with Copy Activities to continuously replicate files from the source Blob Storage to both the target Blob Storage and the Azure NFS file
+system. Enable incremental copy (upsert) so that only new or modified files are copied, providing a fully managed solution with minimal operational overhead.
+#GCP: Use GCP Storage Transfer Service in continuous mode to replicate new and updated files to another GCS bucket. For copying files to the NFS file system (Filestore),
+either use Storage Transfer Service to a mounted Filestore or a Cloud Dataflow pipeline to continuously detect and copy changed files. Both approaches minimize operational overhead and transfer only updated files.
+#AWS: Configure S3 Replication to continuously replicate new and updated files to the target S3 bucket. Use AWS DataSync to continuously copy files from the S3 bucket
+to Amazon EFS. Both solutions transfer only changed files and provide a fully managed, low-overhead way to keep destinations up to date.
