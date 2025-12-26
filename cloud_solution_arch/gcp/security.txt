@@ -2,12 +2,13 @@
 
 Ex1: A company needs a solution to enforce data encryption at rest on GCP/AWS/AZ EC2/VM instances, must automatically identify noncompliant resources and 
 enforce compliance policies on ndings. Which solution will meet these requirements with the LEAST administrative overhead?
-#GCP
-Sol: Enforce disk encryption by using GCP Organization Policy Service with the constraint compute.requireCmekForDiskCreation to automatically require encryption
+#GCP: Enforce disk encryption by using GCP Organization Policy Service with the constraint compute.requireCmekForDiskCreation to automatically require encryption
 for all Compute Engine disks, and use Cloud Asset Inventory to identify any existing noncompliant resources.
-#AWS
-Enable AWS Config with the managed rule encrypted-volumes to automatically identify EC2 instances with unencrypted EBS volumes, and configure automatic remediation 
-using AWS Systems Manager Automation. This solution continuously enforces encryption at rest with minimal administrative overhead.
-#AZ
-Use Azure Policy with built-in policies to require Azure Disk Encryption for virtual machine OS and data disks and configure automatic remediation using
+#AWS: Enable AWS Config with the managed rule encrypted-volumes to automatically identify EC2 instances with unencrypted EBS volumes, and configure automatic remediation using AWS Systems Manager Automation. This solution continuously enforces encryption at rest with minimal administrative overhead.
+#AZ: Use Azure Policy with built-in policies to require Azure Disk Encryption for virtual machine OS and data disks and configure automatic remediation using
 DeployIfNotExists.Azure Policy continuously identifies noncompliant VMs and enforces encryption at rest with the least administrative overhead.
+
+Ex:2 A company uses Amazon EC2 instances and stores data on Amazon Elastic Block Store (Amazon EBS) volumes. The company must ensure that all data is encrypted at rest by using AWS Key Management Service (AWS KMS). The company must be able to control rotation of the encryption keys. Which solution will meet these requirements with the LEAST operational overhead?
+#AWS: Use customer-managed KMS keys for EBS encryption
+#GCP: Configure all Compute Engine disks to use Customer-Managed Encryption Keys (CMEK) from Cloud KMS. Enable automatic key rotation to maintain control over encryption keys while GCP handles encryption at rest and re-encryption, providing a solution with minimal operational overhead
+#Azure: Use Azure Disk Encryption for all VM disks and configure them to use Customer-Managed Keys (CMK) stored in Azure Key Vault. Enable automatic key rotation to maintain control over encryption keys while Azure handles encryption at rest and re-encryption, providing minimal operational overhead.
