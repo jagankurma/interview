@@ -10,3 +10,18 @@ millisecond latency through Google’s global edge network while ensuring applic
 #AWS
 Deploy the web applications on Amazon EC2 instances in an AWS Local Zone located close to the company, while using a parent AWS Region other than eu-central-1. 
 AWS Local Zones provide single-digit millisecond latency while allowing the company to meet regulatory requirements by avoiding deployment in eu-central-1.
+
+Ex2: A company is migrating its multi-tier on-premises application to AWS. The application consists of a single-node MySQL database and a multi-node web tier. The
+company must minimize changes to the application during the migration. The company wants to improve application resiliency after the migration.
+#AWS
+Sol: Migrate the MySQL database to Amazon RDS for MySQL with Multi-AZ enabled and deploy the web tier on EC2 instances in an Auto Scaling group across 
+multiple Availability Zones, fronted by an Application Load Balancer.This approach requires minimal application changes while significantly improving resiliency 
+through managed database failover, load balancing, and automatic scaling.
+ #GCP
+Migrate the MySQL database to Cloud SQL for MySQL with high availability enabled, and deploy the web tier on Compute Engine instances in a managed instance group 
+across multiple zones, fronted by a Google Cloud external HTTP(S) load balancer. This approach minimizes application changes while improving resiliency through
+managed database failover, load balancing, and automatic instance healing.
+#Azure
+Migrate the MySQL database to Azure Database for MySQL – Flexible Server with zone-redundant high availability, and deploy the web tier on Virtual Machines in an 
+Availability Set or VM Scale Set across multiple zones, fronted by an Azure Load Balancer or Application Gateway. This approach minimizes application changes while
+improving resiliency through managed database failover, load balancing, and automatic scaling.
